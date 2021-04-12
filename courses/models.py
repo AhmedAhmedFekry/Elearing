@@ -90,18 +90,20 @@ class ItemBase(models.Model):
 
     def render(self):
         return render_to_string(f'courses/content/{self._meta.model_name}.html',
-                                    {'item': self}
+                                {'item': self})
+
+
 class Text(ItemBase):
-    content=models.TextField()
+    content = models.TextField()
 
 
 class File(ItemBase):
-    file=models.FileField(upload_to='files')
+    file = models.FileField(upload_to='files')
 
 
 class Image(ItemBase):
-    file=models.FileField(upload_to='images')
+    file = models.FileField(upload_to='images')
 
 
 class Video(ItemBase):
-    url=models.URLField()
+    url = models.URLField()
